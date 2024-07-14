@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ball Maze Animation</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+
+    .maze {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      border: 2px solid #000;
+      background-color: #fff;
+         border-radius:10px;
+    }
+
+  
+
+    
+
+   
+    .wall {
+      position: absolute;
+      background-color: #000;
+    }
+
+    .wall1 {
+      top: 0;
+      left: 50px;
+      width: 3px;
+      height: 200px;
+    }
+
+    .wall2 {
+      top: 150px;
+      left: 100px;
+      width: 2px;
+      height: 100px;
+    }
+    .wall3{
+       top: 100px;
+      left: 100px;
+      width: 150px;
+      height: 2px;
+    }
+    .wall4{
+      top: 250px;
+      left: 50px;
+      width: 50px;
+      height: 2px;
+    }
+     .wall5{
+      top: 200px;
+      left: 50px;
+      width: 50px;
+      height: 2px;
+    }
+    
+    .wall6{
+      top: 100px;
+      left: 150px;
+      width: 3px;
+      height: 200px;
+    }
+    .wall6{
+      top: 50px;
+      left: 100px;
+      width: 2px;
+      height: 50px;
+    }
+    .wall7{
+      top: 50px;
+      left: 150px;
+      width: 3px;
+      height: 250px;
+    }
+    
+    .wall8{
+      top: 150px;
+      left: 200px;
+      width: 3px;
+      height: 150px;
+    }
+    .wall9{
+      top: 150px;
+      left: 250px;
+      width: 3px;
+      height: 100px;
+    }
+    
+     .wall10{
+      top: 250px;
+      left: 250px;
+      width: 50px;
+      height: 2px;
+    }
+    
+     
+     .wall11{
+      top: 50px;
+      left: 200px;
+      width: 100px;
+      height: 2px;
+    }
+    
+    .start{
+      position:absolute;
+      top: 5px;
+    
+      color:green;
+    }
+    .end{
+      position:absolute;
+      bottom: 5px;
+      right:5px;
+      color:red;
+    }
+    
+    .ball {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      
+    
+      top: 0;
+      left: 0;
+      animation: moveBall 10s linear infinite paused;
+    }
+
+    @keyframes moveBall {
+      0% { top: 15px; left: 15px; }
+      10% { top: 260px; left: 15px; }
+      15% { top: 260px; left: 120px; }
+      20% { top: 120px; left: 120px; }
+      30% { top: 120px; left: 60px; }
+      35% { top: 15px; left: 60px; }
+      45% { top: 15px; left: 160px; }
+      50% { top: 60px; left: 160px; }
+      60% { top: 60px; left: 260px; }
+      70% { top: 120px; left: 260px; }
+      80% { top: 120px; left: 220px; }
+       90% { top: 260px; left: 220px; }
+       100% { top: 260px; left: 260px; }
+    }
+
+    .controls {
+      margin-top: 20px;
+    }
+
+    .controls button {
+      margin: 0 5px;
+      padding: 10px 20px;
+      background-color:yellow;
+      font-size: 16px;
+      cursor: pointer;
+      transition:200ms;
+      border-radius:10px;
+    }
+    
+    .controls button:hover{
+      transform:scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <div class="maze">
+    <div class="wall wall1"></div>
+    <div class="wall wall2"></div>
+     <div class="wall wall3"></div>
+     <div class="wall wall4"></div>
+     <div class="wall wall5"></div>
+     <div class="wall wall6"></div>
+    <div class="wall wall7"></div>
+    <div class="wall wall8"></div>
+     <div class="wall wall9"></div>
+     <div class="wall wall10"></div>
+     <div class="wall wall11"></div>
+   
+    <div class="start"> START</div>
+     <div class="end"> END </div>
+    <img class="ball" src="https://static.vecteezy.com/system/resources/previews/011/887/128/original/black-metal-ball-png.png" id="ball"/>
+  </div>
+  <div class="controls">
+    <button onclick="startBall()">Start</button>
+    <button onclick="resumeBall()">Resume</button>
+    <button onclick="stopBall()">Stop</button>
+  </div>
+
+  <script>
+    const ball = document.getElementById('ball');
+
+    function startBall() {
+      ball.style.animation = 'none';
+      ball.offsetHeight;
+      ball.style.animation = null;
+      ball.style.animationPlayState = 'running';
+    }
+
+    function resumeBall() {
+      ball.style.animationPlayState = 'running';
+    }
+
+    function stopBall() {
+      ball.style.animationPlayState = 'paused';
+    }
+  </script>
+</body>
+</html>
+
